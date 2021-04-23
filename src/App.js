@@ -1,11 +1,19 @@
-import "./App.css";
+import React, { useState } from "react";
+import ReactMarkdown from "react-markdown";
 
-function App() {
+import "./styles.css";
+
+export default function App() {
+  const [markdown, setMarkdown] = useState("Heading");
+
   return (
-    <div className="App">
-      <h1> Mark Down Previewer</h1>
+    <div className="markdown__container">
+      <textarea
+        value={markdown}
+        onChange={(e) => setMarkdown(e.target.value)}
+      />
+
+      <ReactMarkdown source={markdown} className="markdown__preview" />
     </div>
   );
 }
-
-export default App;
